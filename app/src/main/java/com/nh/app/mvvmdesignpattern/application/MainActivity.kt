@@ -1,7 +1,8 @@
-package com.nh.app.mvvmdesignpattern
+package com.nh.app.mvvmdesignpattern.application
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.nh.app.mvvmdesignpattern.R
 
 class MainActivity : AppCompatActivity() {
 

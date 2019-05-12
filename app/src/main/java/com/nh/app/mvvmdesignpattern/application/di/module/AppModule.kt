@@ -1,9 +1,12 @@
 package com.nh.app.mvvmdesignpattern.application.di.module
-
+import com.nh.app.mvvmdesignpattern.model.remote.APIServices
 import dagger.Module
 import dagger.Provides
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Singleton
 
-@Module
+@Module(includes = [ViewModelModule::class])
 class AppModule {
 
     /*
@@ -12,14 +15,26 @@ class AppModule {
 
      */
 
+    @Singleton
+    @Provides
+    fun provideGithubService(): APIServices {
+        return Retrofit.Builder()
+            .baseUrl("https://api.github.com/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(APIServices::class.java)
+    }
+
+    @Singleton
     @Provides
     fun getMyString():String{
         return "Hello From Prakhar"
     }
 
+    @Singleton
     @Provides
-    fun checkString(mystring: String):Int{
-        return if(mystring.equals("Hello From Prakhar")){
+    fun checkString(myString: String):Int{
+        return if(myString == "Hello From Prakhar"){
             1
         }else{
             0

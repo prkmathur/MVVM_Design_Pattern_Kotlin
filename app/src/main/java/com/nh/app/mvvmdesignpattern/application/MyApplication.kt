@@ -6,7 +6,7 @@ import dagger.android.support.DaggerApplication
 
 class MyApplication: DaggerApplication() {
 
-    // Trest this as a Client
+    // Treat this as a Client
 
     override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
 

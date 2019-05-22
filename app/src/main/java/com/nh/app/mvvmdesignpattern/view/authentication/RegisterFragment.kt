@@ -25,7 +25,6 @@ class RegisterFragment: DaggerFragment(){
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
 
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         registerBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_register,container,false)
@@ -43,12 +42,10 @@ class RegisterFragment: DaggerFragment(){
         registerBinding.viewmodel = registerViewModel
     }
 
-
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         setUpRegister()
     }
-
 
     private fun setUpRegister(){
         registerBinding.viewmodel!!.registerEvent.observe(this, Observer<User>(function = {

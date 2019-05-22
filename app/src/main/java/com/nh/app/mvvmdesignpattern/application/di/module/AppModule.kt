@@ -9,12 +9,6 @@ import javax.inject.Singleton
 @Module(includes = [ViewModelModule::class])
 class AppModule {
 
-    /*
-          Dagger always finds the dependencies first in their dependency Graph and if
-          available provide that to the required @Provide annotation method
-
-     */
-
     @Singleton
     @Provides
     fun provideGithubService(): APIServices {
@@ -40,6 +34,5 @@ class AppModule {
             0
         }
     }
-
 
 }
